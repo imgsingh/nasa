@@ -111,7 +111,9 @@ function NASAImages() {
                         {assetManifest && (
                             <div>
                                 <h3>Image</h3>
-                                <img height={'365px'} src={assetManifest.collection.items[1].href} />
+                                <img height={'365px'}
+                                    alt={assetManifest.collection.href.split('/')[assetManifest.collection.href.split('/').length - 1]}
+                                    src={assetManifest.collection.items[1].href} />
                             </div>
                         )}
                         {assetManifest && (

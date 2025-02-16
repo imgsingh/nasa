@@ -1,0 +1,87 @@
+/* MarsPhotos.css */
+.mars-photos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: sans-serif;
+    min-height: 100vh;
+    /* Ensure full viewport height */
+    background-color: #f0f0f0;
+    /* Light background color */
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    /* Vertically center items */
+}
+
+.filters label {
+    margin-right: 5px;
+}
+
+.manifest-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.manifest-info h2 {
+    margin-top: 0;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+}
+
+.photo-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    /* Prevent image from affecting layout */
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    /* Example color */
+    color: white;
+}
+
+.pagination button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}

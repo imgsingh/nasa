@@ -1,0 +1,121 @@
+/* Navbar.css */
+.navbar {
+    background-color: #333;
+    /* Dark background color */
+    height: 60px;
+    /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    position: sticky;
+    /* Sticky navbar */
+    top: 0;
+    z-index: 10;
+    /* Ensure it's above other content */
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    /* Space logo and menu */
+    align-items: center;
+    width: 90%;
+    /* Occupy most of the screen width */
+    max-width: 1200px;
+    /* Set a maximum width */
+}
+
+.navbar-logo {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar-item {
+    margin-left: 20px;
+    /* Adjust spacing between items */
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    /* Add some padding around text */
+    border-radius: 4px;
+    /* Optional: Add rounded corners */
+    transition: background-color 0.3s ease;
+    /* Smooth transition on hover */
+}
+
+.navbar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Slightly lighter background on hover */
+}
+
+/* Mobile Menu Styles */
+.navbar-toggle {
+    display: none;
+    /* Hide toggle on larger screens */
+    cursor: pointer;
+    padding: 10px;
+}
+
+.navbar-toggle-line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .navbar-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        display: none;
+        /* Hide menu by default */
+        text-align: center;
+        /* Center text in menu */
+    }
+
+    .navbar-menu.active {
+        display: flex;
+        /* Show menu when active class is present */
+    }
+
+    .navbar-item {
+        margin: 10px 0;
+        width: 100%;
+        /* Make list items take full width */
+    }
+
+    .navbar-link {
+        padding: 15px;
+        /* Increase padding for touch targets */
+        display: block;
+        /* Make links full width for better touch experience */
+    }
+
+    .navbar-toggle {
+        display: block;
+        /* Show toggle on smaller screens */
+    }
+
+    .navbar-container {
+        flex-wrap: wrap;
+        /* Allow items to wrap on smaller screens */
+    }
+}

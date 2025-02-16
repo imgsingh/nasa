@@ -1,6 +1,7 @@
 import React, { useState } from 'react'; // Import useState
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import BounceImage from '../../assets/bounce.png'
 
 function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for menu visibility

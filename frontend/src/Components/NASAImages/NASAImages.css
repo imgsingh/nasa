@@ -1,0 +1,88 @@
+/* NASAImages.css */
+.nasa-images-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: sans-serif;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    /* Limit search bar width */
+}
+
+.search-bar input[type="text"] {
+    flex: 1;
+    /* Allow input to expand */
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-bar button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    /* Example color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.results {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    /* Limit results width */
+    gap: 20px;
+}
+
+.search-results {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+    overflow-y: auto;
+    max-height: 400px;
+    /* Limit search results height */
+}
+
+.search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results li {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.asset-details {
+    flex: 2;
+    /* Take more space */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+    overflow-y: auto;
+    max-height: 600px;
+    /* Limit asset details height */
+}
+
+.asset-details pre {
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.error {
+    color: red;
+}

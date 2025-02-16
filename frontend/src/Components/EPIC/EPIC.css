@@ -1,0 +1,121 @@
+/* EPIC.css */
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filters label {
+    margin-right: 5px;
+}
+
+.metadata {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.metadata h2 {
+    margin-top: 0;
+}
+
+.error {
+    color: red;
+}
+
+
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    /* Or a percentage if you want it relative to the parent */
+    height: 500px;
+    margin: 0 auto;
+    max-width: 90%;
+    /* Prevent image from overflowing on smaller screens */
+    max-height: 90vh;
+    /* Prevent image from overflowing the viewport height */
+}
+
+.epic-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Or contain, depending on your needs */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    /* Adjust breakpoint as needed */
+    .image-container {
+        width: 90%;
+        /* Take up most of the screen width on smaller screens */
+        height: auto;
+        /* Maintain aspect ratio */
+        max-height: 50vh;
+        /* Limit height on smaller screens */
+    }
+}
+
+
+/* Optional: Styles for the overall EPIC container */
+.epic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+    background-color: #f0f0f0;
+    /* Add some padding */
+}
+
+@media (max-width: 768px) {
+    .epic-container {
+        padding: 10px;
+        background-color: #f0f0f0;
+        /* Reduce padding on smaller screens */
+    }
+}
+
+
+.epic-content {
+    display: flex;
+    /* Enable Flexbox for horizontal alignment */
+    align-items: flex-start;
+    /* Align items to the top of the container */
+    gap: 20px;
+    /* Space between image and metadata */
+    width: 90%;
+    /* Take full width */
+}
+
+.image-container {
+    /* ... (your existing image container styles) */
+    flex: 1;
+    /* Allow image container to grow */
+}
+
+.metadata {
+    /* ... (your existing metadata styles) */
+    flex: 1;
+    /* Allow metadata container to grow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .epic-content {
+        flex-direction: column;
+        /* Stack vertically on smaller screens */
+        align-items: center;
+        /* Center horizontally */
+    }
+}

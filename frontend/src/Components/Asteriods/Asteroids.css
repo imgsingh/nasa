@@ -1,0 +1,88 @@
+/* Asteroids.css */
+.asteroids-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: sans-serif;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.main-content {
+    display: flex;
+    /* Enable Flexbox for layout */
+    width: 100%;
+    /* Take full width */
+    gap: 20px;
+    /* Space between the lists and details */
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filters label {
+    margin-right: 5px;
+}
+
+.asteroids-lists {
+    flex: 0 0 30%;
+}
+
+.asteroids-irems {
+    flex: 0 0 70%;
+}
+
+.asteroids-list {
+    flex: 1;
+    /* Each list takes up available space within the 30% */
+}
+
+.asteroid-details {
+    flex: 0 0 65%;
+    /* 70% width for the details */
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+.asteroids-list ul {
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+}
+
+.asteroids-list li {
+    cursor: pointer;
+    /* Indicate clickable list items */
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.error {
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        /* Stack lists and details vertically */
+    }
+
+    .asteroids-lists,
+    .asteroid-details {
+        flex: 1;
+        /* Each takes full width */
+        width: 100%;
+    }
+}

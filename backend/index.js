@@ -14,12 +14,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+const API_KEY = `UDfLcl2dslf9mBwegfa6RwPtjoO0eWy6yUewaEjA`
+
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello from the server!' });
 });
 
 app.get('/api/apod', async (req, res) => {
-  const apiKey = process.env.API_KEY || 'DEMO_KEY'; // Use environment variable or default
+  const apiKey = API_KEY; // Use environment variable or default
   const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`; // Construct API URL
   console.log(apiUrl)
   try {
@@ -38,7 +40,7 @@ app.get('/api/apod', async (req, res) => {
 // NASA Mars Photos API Route
 app.get('/api/marsPhotos/:rover', async (req, res) => {
   const { rover } = req.params;
-  const apiKey = process.env.API_KEY || 'DEMO_KEY'; // Access environment variable
+  const apiKey = API_KEY; // Access environment variable
   let apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?api_key=${apiKey}`;
 
   if (req.query.sol) {
@@ -71,7 +73,7 @@ app.get('/api/marsPhotos/:rover', async (req, res) => {
 // NASA Mars Manifest API Route
 app.get('/api/manifests/:rover', async (req, res) => {
   const { rover } = req.params;
-  const apiKey = process.env.API_KEY || 'DEMO_KEY';
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${apiKey}`;
 
   try {
@@ -105,25 +107,25 @@ const handleApiRequest = async (req, res, apiUrl) => {
 
 // EPIC API Routes
 app.get('/api/epic/:imageType/images', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/EPIC/api/${req.params.imageType}/images?api_key=${apiKey}`;
   return handleApiRequest(req, res, apiUrl);
 });
 
 app.get('/api/epic/:imageType/date/:date', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/EPIC/api/${req.params.imageType}/date/${req.params.date}?api_key=${apiKey}`;
   return handleApiRequest(req, res, apiUrl);
 });
 
 app.get('/api/epic/:imageType/available', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/EPIC/api/${req.params.imageType}/all?api_key=${apiKey}`; // Use /all for available dates
   return handleApiRequest(req, res, apiUrl);
 });
 
 app.get('/api/epic/archive/:imageType/:year/:month/:day/png/:imageName.png', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const url = `https://api.nasa.gov/EPIC/archive/${req.params.imageType}/${req.params.year}/${req.params.month}/${req.params.day}/png/${req.params.imageName}.png?api_key=${apiKey}`;
 
   try {
@@ -141,19 +143,19 @@ app.get('/api/epic/archive/:imageType/:year/:month/:day/png/:imageName.png', asy
 
 
 app.get('/api/asteroids/feed', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${req.query.start_date}&end_date=${req.query.end_date}&api_key=${apiKey}`;
   return handleApiRequest(req, res, apiUrl);
 });
 
 app.get('/api/asteroids/lookup/:asteroidId', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/neo/rest/v1/neo/${req.params.asteroidId}?api_key=${apiKey}`;
   return handleApiRequest(req, res, apiUrl);
 });
 
 app.get('/api/asteroids/browse', async (req, res) => {
-  const apiKey = process.env.API_KEY;
+  const apiKey = API_KEY;
   const apiUrl = `https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=${apiKey}`;
   return handleApiRequest(req, res, apiUrl);
 });

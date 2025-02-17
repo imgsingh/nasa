@@ -5,7 +5,13 @@ const app = express();
 const port = 5000;
 
 require('dotenv').config();
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://nasa-ebon-chi.vercel.app',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get('/api/hello', (req, res) => {

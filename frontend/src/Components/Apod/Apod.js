@@ -8,7 +8,7 @@ function Apod() {
     const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
-        fetch(apiUrl + '/api/apod')
+        fetch(`${apiUrl}/api/apod`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);

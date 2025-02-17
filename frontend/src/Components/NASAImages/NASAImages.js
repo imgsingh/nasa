@@ -10,13 +10,14 @@ function NASAImages() {
     const [assetCaptions, setAssetCaptions] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     const handleSearch = async () => {
         setLoading(true);
         setError(null);
 
         try {
-            const response = await fetch(`/api/nasaImages/search?q=${searchTerm}&api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const response = await fetch(`${apiUrl}/api/nasaImages/search?q=${searchTerm}&api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`HTTP error! status: ${response.status}, details: ${JSON.stringify(errorData)}`);
@@ -40,7 +41,7 @@ function NASAImages() {
         setError(null);
 
         try {
-            const manifestResponse = await fetch(`/api/nasaImages/asset/${nasa_id}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const manifestResponse = await fetch(`${apiUrl}/api/nasaImages/asset/${nasa_id}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             if (!manifestResponse.ok) {
                 const errorData = await manifestResponse.json();
                 throw new Error(`HTTP error! status: ${manifestResponse.status}, details: ${JSON.stringify(errorData)}`);
@@ -48,7 +49,7 @@ function NASAImages() {
             const manifestData = await manifestResponse.json();
             setAssetManifest(manifestData);
 
-            const metadataResponse = await fetch(`/api/nasaImages/metadata/${nasa_id}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const metadataResponse = await fetch(`${apiUrl}/api/nasaImages/metadata/${nasa_id}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             if (!metadataResponse.ok) {
                 const errorData = await metadataResponse.json();
                 throw new Error(`HTTP error! status: ${metadataResponse.status}, details: ${JSON.stringify(errorData)}`);
@@ -56,7 +57,7 @@ function NASAImages() {
             const metadataData = await metadataResponse.json();
             setAssetMetadata(metadataData);
 
-            // const captionsResponse = await fetch(`/api/nasaImages/captions/${nasa_id}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            // const captionsResponse = await fetch(`${apiUrl}/api/nasaImages/captions/${nasa_id}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             // if (!captionsResponse.ok) {
             //     const errorData = await captionsResponse.json();
             //     throw new Error(`HTTP error! status: ${captionsResponse.status}, details: ${JSON.stringify(errorData)}`);

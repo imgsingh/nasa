@@ -15,6 +15,7 @@ function Asteroids() {
     const [minEndDate, setMinEndDate] = useState('');
     const [maxEndDate, setMaxEndDate] = useState('');
     const [scatterData, setScatteredData] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         // Calculate max end date (7 days from start date)
@@ -46,7 +47,7 @@ function Asteroids() {
 
         try {
             const response = await fetch(
-                `/api/asteroids/feed?start_date=${startDate}&end_date=${endDate}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+                `${apiUrl}/api/asteroids/feed?start_date=${startDate}&end_date=${endDate}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
             );
 
             if (!response.ok) {
@@ -69,7 +70,7 @@ function Asteroids() {
         setError(null);
 
         try {
-            const response = await fetch(`/api/asteroids/lookup/${asteroidId}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const response = await fetch(`${apiUrl}/api/asteroids/lookup/${asteroidId}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`HTTP error! status: ${response.status}, details: ${JSON.stringify(errorData)}`);
@@ -89,7 +90,7 @@ function Asteroids() {
         setError(null);
 
         try {
-            const response = await fetch(`/api/asteroids/browse?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const response = await fetch(`${apiUrl}/api/asteroids/browse?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(`HTTP error! status: ${response.status}, details: ${JSON.stringify(errorData)}`);

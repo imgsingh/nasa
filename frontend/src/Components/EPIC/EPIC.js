@@ -10,6 +10,7 @@ function EPIC() {
     const [error, setError] = useState(null);
     const [availableDates, setAvailableDates] = useState([]);
     const [imageType, setImageType] = useState('natural');
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
         fetchAvailableDates();
@@ -19,7 +20,7 @@ function EPIC() {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch(`/api/epic/${imageType}/available?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const response = await fetch(`${apiUrl}/api/epic/${imageType}/available?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
             if (!response.ok) {
                 const errorData = await response.json();// Try to get error details from API
                 throw new Error(`HTTP error! status: ${response.status}, details: ${JSON.stringify(errorData)}`);
@@ -52,7 +53,7 @@ function EPIC() {
     const fetchEpicData = async () => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/epic/${imageType}/date/${selectedDate}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
+            const response = await fetch(`${apiUrl}/api/epic/${imageType}/date/${selectedDate}?api_key=${process.env.REACT_APP_NASA_API_KEY}`);
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

@@ -12,6 +12,7 @@ function MarsPhotos() {
     const [page, setPage] = useState(1);
     const [error, setError] = useState(null);
     const [hasSearched, setHasSearched] = useState(false);
+    const apiUrl1 = process.env.REACT_APP_API_URL;
 
     const cameras = {
         all: 'All Cameras',
@@ -32,7 +33,7 @@ function MarsPhotos() {
 
     const fetchManifest = async () => {
         try {
-            const response = await fetch(`/api/manifests/${rover}`);
+            const response = await fetch(`${apiUrl1}/api/manifests/${rover}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -46,7 +47,7 @@ function MarsPhotos() {
 
 
     const fetchPhotos = async () => {
-        let apiUrl = `/api/marsPhotos/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}&page=${page}`;
+        let apiUrl = `${apiUrl1}/api/marsPhotos/${rover}?api_key=${process.env.REACT_APP_NASA_API_KEY}&page=${page}`;
 
         if (sol) {
             apiUrl += `&sol=${sol}`;

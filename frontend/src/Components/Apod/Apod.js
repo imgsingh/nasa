@@ -5,9 +5,10 @@ import Loading from '../Loading/Loading';
 function Apod() {
     const [apodData, setApodData] = useState(null);
     const [error, setError] = useState(null);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
     useEffect(() => {
-        fetch('/api/apod')
+        fetch(apiUrl + '/api/apod')
             .then(res => {
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);

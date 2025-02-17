@@ -99,5 +99,3 @@ This project provides a simple web interface to explore the NASA Image and Video
 4.  **Set Environment Variables:** In your Vercel project settings, add the `NASA_API_KEY` environment variable with your actual API key.
 
 5.  **Deploy:** Vercel will automatically detect your project type and deploy your application.
-
-## Project Structure
